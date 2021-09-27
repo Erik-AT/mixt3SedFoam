@@ -1,0 +1,34 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.1.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      setFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+expressions
+ (
+	alpha1
+    	{
+		field alpha.sand;
+		expression "0.53*0.5*(1.0+tanh((0.0211-pos().y)/0.05*10.0))";
+		keepPatches 1;
+	}
+	alpha2
+    	{
+		field alpha.water;
+		expression "1-0.53*0.5*(1.0+tanh((0.0211-pos().y)/0.05*10.0))";
+		keepPatches 1;
+	}
+ );
+
+// ************************************************************************* //

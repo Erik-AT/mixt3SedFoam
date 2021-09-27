@@ -1,0 +1,78 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.1.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      setFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+expressions
+ (
+	
+       sand
+        {
+        field alpha.sand; //field to initialise
+        fields
+        (
+        y alpha.sand
+        );
+        lookuptables (
+        {
+        name inletprofilealphaSand;
+        outOfBounds clamp;
+        fileName "$FOAM_CASE/constant/initial_profiles/sand.xy";
+        }
+        );
+        expression "inletprofilealphaSand(pos().y)";
+        keepPatches 1;
+        }
+
+       water
+        {
+        field alpha.water; //field to initialise
+        fields
+        (
+        y alpha.water
+        );
+        lookuptables (
+        {
+        name inletprofilealphaWater;
+        outOfBounds clamp;
+        fileName "$FOAM_CASE/constant/initial_profiles/water.xy";
+        }
+        );
+        expression "inletprofilealphaWater(pos().y)";
+        keepPatches 1;
+        }
+
+
+       psf
+        {
+        field psf; //field to initialise
+        fields
+        (
+        y psf
+        );
+        lookuptables (
+        {
+        name inletprofilepsf;
+        outOfBounds clamp;
+        fileName "$FOAM_CASE/constant/initial_profiles/psf.xy";
+        }
+        );
+        expression "inletprofilepsf(pos().y)";
+        keepPatches 1;
+        }
+
+ );
+
+// ************************************************************************* //

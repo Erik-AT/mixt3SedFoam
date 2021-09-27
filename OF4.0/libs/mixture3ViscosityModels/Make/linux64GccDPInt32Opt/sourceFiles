@@ -1,0 +1,9 @@
+SOURCE = \
+mixture3ViscosityModel/mixture3ViscosityModel.C \
+mixture3ViscosityModel/mixture3ViscosityModelNew.C \
+Batchelor/Batchelor.C \
+BoyerEtAl/BoyerEtAl.C \
+Einstein/Einstein.C \
+KriegerDougherty/KriegerDougherty.C \
+None/None.C \
+Thomas/Thomas.C 

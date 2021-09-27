@@ -1,0 +1,69 @@
+Making dependency list for source file mixt3SedFoam.C
+g++ -std=c++0x -m64 -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -O3  -DNoRepository -ftemplate-depth-100 -I../libs/incompressibleThreePhaseMixture 	-I../libs/immiscibleIncompressibleThreePhaseMixture -I../libs/mixture3ViscosityModels/lnInclude 	-I../libs/mixture3DragModels/lnInclude 	-I../libs/threePhaseMixture/lnInclude -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/finiteVolume/lnInclude -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/meshTools/lnInclude -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/sampling/lnInclude 	-I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/triSurface/lnInclude 	-I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/dynamicMesh/lnInclude -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/transportModels -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/transportModels/compressible/lnInclude -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/transportModels/interfaceProperties/lnInclude 	-I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/transportModels/twoPhaseProperties/alphaContactAngle/alphaContactAngle -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/TurbulenceModels/turbulenceModels/lnInclude -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/TurbulenceModels/compressible/lnInclude -IlnInclude -I. -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/OpenFOAM/lnInclude -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/OSspecific/POSIX/lnInclude   -fPIC -c mixt3SedFoam.C -o Make/linux64GccDPInt32Opt/mixt3SedFoam.o
+In file included from /home/meouda/OpenFOAM/OpenFOAM-4.0/src/OpenFOAM/lnInclude/postProcess.H:129:0,
+                 from mixt3SedFoam.C:71:
+./createFields.H: In function ‘int main(int, char**)’:
+./createFields.H:236:27: warning: unused variable ‘rhog’ [-Wunused-variable]
+  const dimensionedScalar& rhog = mixture.rhog();
+                           ^
+./createFields.H:242:26: warning: unused variable ‘dd’ [-Wunused-variable]
+ const dimensionedScalar& dd(mixture.dd());
+                          ^
+./createFields.H:245:26: warning: unused variable ‘Sct’ [-Wunused-variable]
+ const dimensionedScalar& Sct(mixture.Sct());
+                          ^
+In file included from ./createFields.H:325:0,
+                 from /home/meouda/OpenFOAM/OpenFOAM-4.0/src/OpenFOAM/lnInclude/postProcess.H:129,
+                 from mixt3SedFoam.C:71:
+./createW.H:41:8: warning: unused variable ‘turbulentDispersion’ [-Wunused-variable]
+  bool  turbulentDispersion(relativeVelocityDict.lookupOrDefault("turbulentDispersion", true));
+        ^
+./createW.H:44:8: warning: unused variable ‘shearInduced’ [-Wunused-variable]
+  bool  shearInduced(relativeVelocityDict.lookupOrDefault("shearInduced", true));
+        ^
+./createW.H:47:9: warning: unused variable ‘nWcorr’ [-Wunused-variable]
+  label  nWcorr(relativeVelocityDict.lookupOrDefault<label>("nWCdCorrectors", 8));    
+         ^
+In file included from /home/meouda/OpenFOAM/OpenFOAM-4.0/src/OpenFOAM/lnInclude/postProcess.H:129:0,
+                 from mixt3SedFoam.C:71:
+./createFields.H:385:8: warning: variable ‘gUnit’ set but not used [-Wunused-but-set-variable]
+ vector gUnit = (g / mag(g)).value();
+        ^
+./createFields.H:496:8: warning: unused variable ‘alphaLimit’ [-Wunused-variable]
+ scalar alphaLimit(readScalar(transProperties.lookup("alphaLimit")));
+        ^
+./createFields.H:499:8: warning: unused variable ‘sedVol’ [-Wunused-variable]
+ scalar sedVol = 0;
+        ^
+./createFields.H:500:8: warning: unused variable ‘waterVol’ [-Wunused-variable]
+ scalar waterVol = 0;
+        ^
+./createFields.H:501:8: warning: unused variable ‘alphaMaxActual’ [-Wunused-variable]
+ scalar alphaMaxActual = 0;
+        ^
+./createFields.H:502:8: warning: unused variable ‘alphaMinActual’ [-Wunused-variable]
+ scalar alphaMinActual = 0;
+        ^
+./createFields.H:509:20: warning: unused variable ‘Owner’ [-Wunused-variable]
+ const labelUList & Owner(mesh.owner());
+                    ^
+./createFields.H:510:20: warning: unused variable ‘Neigh’ [-Wunused-variable]
+ const labelUList & Neigh(mesh.neighbour());
+                    ^
+In file included from mixt3SedFoam.C:110:0:
+alphasControls.H:26:9: warning: unused variable ‘scAlpha’ [-Wunused-variable]
+  scalar scAlpha
+         ^
+In file included from mixt3SedFoam.C:78:0:
+createFields.H:496:8: warning: unused variable ‘alphaLimit’ [-Wunused-variable]
+ scalar alphaLimit(readScalar(transProperties.lookup("alphaLimit")));
+        ^
+createFields.H:509:20: warning: unused variable ‘Owner’ [-Wunused-variable]
+ const labelUList & Owner(mesh.owner());
+                    ^
+createFields.H:510:20: warning: unused variable ‘Neigh’ [-Wunused-variable]
+ const labelUList & Neigh(mesh.neighbour());
+                    ^
+g++ -std=c++0x -m64 -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -O3  -DNoRepository -ftemplate-depth-100 -I../libs/incompressibleThreePhaseMixture 	-I../libs/immiscibleIncompressibleThreePhaseMixture -I../libs/mixture3ViscosityModels/lnInclude 	-I../libs/mixture3DragModels/lnInclude 	-I../libs/threePhaseMixture/lnInclude -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/finiteVolume/lnInclude -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/meshTools/lnInclude -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/sampling/lnInclude 	-I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/triSurface/lnInclude 	-I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/dynamicMesh/lnInclude -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/transportModels -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/transportModels/compressible/lnInclude -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/transportModels/interfaceProperties/lnInclude 	-I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/transportModels/twoPhaseProperties/alphaContactAngle/alphaContactAngle -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/TurbulenceModels/turbulenceModels/lnInclude -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/TurbulenceModels/compressible/lnInclude -IlnInclude -I. -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/OpenFOAM/lnInclude -I/home/meouda/OpenFOAM/OpenFOAM-4.0/src/OSspecific/POSIX/lnInclude   -fPIC -Xlinker --add-needed -Xlinker --no-as-needed Make/linux64GccDPInt32Opt/../libs/incompressibleThreePhaseMixture/incompressibleThreePhaseMixture.o Make/linux64GccDPInt32Opt/compressibleTurbulenceModels.o Make/linux64GccDPInt32Opt/mixt3SedFoam.o -L/home/meouda/OpenFOAM/OpenFOAM-4.0/platforms/linux64GccDPInt32Opt/lib \
+	    -lfiniteVolume -lmeshTools -lsampling 	-ltriSurface 	-ldynamicMesh 	-ltwoPhaseProperties -lcompressibleTransportModels -lturbulenceModels -lcompressibleTurbulenceModels 	-linterfaceProperties 	-L/home/meouda/OpenFOAM/meouda-4.0/platforms/linux64GccDPInt32Opt/lib -limmiscibleIncompressibleThreePhaseMixture -lmixture3ViscosityModels 	-lmixture3DragModels -lthreePhaseMixture  -lOpenFOAM -ldl  \
+	     -lm -o /home/meouda/OpenFOAM/meouda-4.0/platforms/linux64GccDPInt32Opt/bin/mixt3SedFoamF

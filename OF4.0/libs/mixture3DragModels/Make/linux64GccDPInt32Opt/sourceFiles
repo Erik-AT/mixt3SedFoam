@@ -1,0 +1,10 @@
+SOURCE = \
+mixture3DragModel/mixture3DragModel.C \
+mixture3DragModel/newmixture3DragModel.C \
+SchillerNaumann/SchillerNaumann.C \
+TurtonLevenspiel/TurtonLevenspiel.C \
+Wallis/Wallis.C \
+Rusche/Rusche.C \
+Andersson/Andersson.C \
+driftFlux/driftFlux.C \
+driftFluxC/driftFluxC.C 

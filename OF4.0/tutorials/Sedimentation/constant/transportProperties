@@ -1,0 +1,86 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      transportProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+phases (sand water air); //Convention: dispersed phase, water and air 
+
+sand
+{
+    transportModel  KriegerDougherty;	//Type of mixture viscosity closure
+    
+	dargModel	driftFlux;			//Type of drag closure
+	m			3.15;				// m = 3.0 - 2n, n is constant in driftFlux drag model 
+	
+	d			290e-6;			//Sand diameter
+	alphaMax	0.635;			//Random close packing volume fraction
+    rho         1050;			//Sand density
+	Sct			0.70;			//Turbulent Schmidt number
+	packingLimiter	false;
+	ULimiter		false;		
+mupMax			mupMax [1 -1 -1 0 0 0 0] 1e02;					
+}
+
+water
+{
+    transportModel  Newtonian;
+
+    nu              2.105e-05;
+    rho             950;
+}
+
+air
+{
+    transportModel  Newtonian;
+    
+    nu              1.48e-05;
+    rho             1;
+}
+
+// Surface tension coefficient between phase 2 and phase 3
+sigma           sigma [1 0 -2 0 0 0 0] 0.05;
+
+
+//Relative velocity parameters
+relativeVelocity
+	{
+		turbulentDispersion		false;	//Flag to include turbulent dispersion force 
+		shearInduced			false;	//Flag to include shear induced self-diffusion
+		nWCdCorrectors			8;		//No. of W-CD coupling loop iterations
+
+	}
+
+
+//Granular rheology paramaters
+granularRheology
+	{
+		//Johnson and Jackson (1987) fricitional pressure parameters
+		alphaMinFriction	alphaMinFriction [ 0 0 0 0 0 0 0 ] 0.57;	//Minimum volume fraction to activate frictional pressure
+		Cp					Cp [ 1 -1 -2 0 0 0 0 ] 5e-2;
+		C1					C1 [ 0 0 0 0 0 0 0 ] 3;
+		C2					C2 [ 0 0 0 0 0 0 0 ] 5;	
+
+		//Kinetic or collisional pressure parameters
+		kineticPressure		false;								//Flag to solve for kinetic pressure
+		Bphi            	Bphi [ 0 0 0 0 0 0 0 ] 0.66;		//Parameter of the dilatancy law (0.25 to 0.9)
+		relaxPsk			relaxPsk [0 0 0 0 0 0 0] 0.005;		//Relaxation factor for psk 
+		
+		//Particle shear viscosity parameters
+		lambdaR				lambdaR [ 0 0 -1 0 0 0 0 ] 1e-4;	//Regularization parameter
+		mus					mus  [ 0 0 0 0 0 0 0 ] 0.4;			//static friction coefficient (tangent of the angle of repose)
+		mu2         	    mu2  [ 0 0 0 0 0 0 0 ] 0.9;			//dynamical friction coefficient 
+		I0					I0   [ 0 0 0 0 0 0 0 ] 0.6;			//empirical rheological coefficient 		 
+	}
+

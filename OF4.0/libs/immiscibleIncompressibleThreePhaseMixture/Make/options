@@ -1,0 +1,26 @@
+EXE_INC = \
+    -I$(LIB_SRC)/transportModels \
+    -I$(LIB_SRC)/transportModels/incompressible/lnInclude \
+    -I$(LIB_SRC)/transportModels/interfaceProperties/lnInclude \
+	-I$(LIB_SRC)/transportModels/twoPhaseProperties/alphaContactAngle/alphaContactAngle \
+    -I../threePhaseMixture/lnInclude \
+    -I../mixture3ViscosityModels/lnInclude \
+	-I../incompressibleThreePhaseMixture \
+    -I$(LIB_SRC)/finiteVolume/lnInclude
+
+LIB_LIBS = \
+    -lincompressibleTransportModels \
+    -linterfaceProperties \
+    -ltwoPhaseProperties \
+    -lfiniteVolume \
+	-L$(FOAM_USER_LIBBIN) \
+    -lmixture3ViscosityModels \
+    -lthreePhaseMixture 
+
+
+
+
+
+
+
+

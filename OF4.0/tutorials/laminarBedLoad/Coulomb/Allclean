@@ -1,0 +1,3 @@
+#!/bin/bash 
+
+find * -maxdepth 0 \( -name '0' -o -name '0.org' -o -name 'tailoredSolver' -o -name 'constant' -o -name 'system' -o -name 'postProcessing' -o -name 'Allclean' \) -prune -o -exec rm -rf '{}' ';'

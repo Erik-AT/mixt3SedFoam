@@ -1,0 +1,4 @@
+SOURCE = \
+../libs/incompressibleThreePhaseMixture/incompressibleThreePhaseMixture.C \
+compressibleTurbulenceModels.C \
+mixt3SedFoam.C 

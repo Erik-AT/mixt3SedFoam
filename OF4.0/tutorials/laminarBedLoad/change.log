@@ -1,0 +1,27 @@
+The following changes have been applied to the solver after running this case:
+
+Ueqn:
+		+ turbulence->divDevRhoReff(U)
+
+		//Adding contribution of solid shear stress tensor separately 
+		- fvm::laplacian(gamma*mup, U)
+		- fvc::div((gamma*mup*dev2(T(fvc::grad(U)))))
+	
+	replaced by:
+
+		- fvm::laplacian(muEff, U)
+		- fvc::div(muEff * dev2(T(fvc::grad(U))))
+
+Weqn:
+
+		Wi*= neg(mag(gradpsf & gUnit) - alphad*(rhod-rhoc)*mag(g));
+
+	replaced by (but has no effect):
+
+		gradpNet = mag(gradpsf & gUnit) - alphad*(rhod-rhoc)*mag(g);
+		Wi*= neg(gradpNet);	
+
+Also When I tried to change the m to n in drift flux drag model it cuase difference in the results
+while it shouldn't. So, I kept it unchanged
+
+
